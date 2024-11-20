@@ -11,7 +11,6 @@ type navbarData = {
 };
 
 const Navbar: React.FC = () => {
-  console.log(navbarData.children[0].children);
   return (
     <>
       <nav className="flex-col w-100 bg-indigo-900">
