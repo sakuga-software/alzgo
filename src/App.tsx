@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="h-full w-100"></div>
+      <div className="h-[50vh] w-100  bg-indigo-500"></div>
     </>
   );
 }
