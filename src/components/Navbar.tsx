@@ -14,18 +14,20 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav className="flex-col w-100 m-5">
-        <div className="flex justify-evenly">
+        <div className="flex justify-evenly items-center">
           <img className="" src={logoNav} />
-          div
-          <form
-            id="search-form"
-            className=" rounded-lg border-indigo-900 border-[1px] flex "
-          >
-            <input type="search" id="search-input" placeholder="Search..." />
-            <button id="search-btn">
-              <img src="loop" />
-            </button>
-          </form>
+
+          <div className="">
+            <form
+              id="search-form"
+              className=" rounded-lg border-indigo-900 border-[1px] p-"
+            >
+              <input type="search" id="search-input" placeholder="Search..." />
+              <button id="search-btn">
+                <img src="loop" />
+              </button>
+            </form>
+          </div>
           <div>
             <ul className="flex list-none">
               <li className=" flex-col">
