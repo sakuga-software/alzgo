@@ -13,17 +13,19 @@ type navbarData = {
 const Navbar: React.FC = () => {
   return (
     <>
-      <nav className="flex-col w-100 bg-indigo-900">
-        <div className="flex">
-          <img src={logoNav} />
-
-          <form id="search-form" className=" rounded-lg border-indigo-900 p-4">
+      <nav className="flex-col w-100 m-5">
+        <div className="flex justify-evenly">
+          <img className="" src={logoNav} />
+          div
+          <form
+            id="search-form"
+            className=" rounded-lg border-indigo-900 border-[1px] flex "
+          >
             <input type="search" id="search-input" placeholder="Search..." />
             <button id="search-btn">
               <img src="loop" />
             </button>
           </form>
-
           <div>
             <ul className="flex list-none">
               <li className=" flex-col">
@@ -42,8 +44,8 @@ const Navbar: React.FC = () => {
             </ul>
           </div>
         </div>
-        <div>
-          <ul className="flex list-none space-x-4">
+        <div className="w-100">
+          <ul className="flex justify-around list-none space-x-4">
             {navbarData.children.map((menu, i) => (
               <li key={i} className="relative group">
                 <div className="text-black hover:text-indigo-900">
