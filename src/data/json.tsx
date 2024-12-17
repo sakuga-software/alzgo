@@ -4,8 +4,14 @@ const siteStructure = {
   to: "/",
   children: [
     {
+      id: "Accueil",
+      label: "Accueil",
+      to: "/",
+      children: [],
+    },
+    {
       id: "products",
-      label: "Produits",
+      label: "Pièces",
       to: "/products",
       children: [
         { id: "products-body", label: "Carrosserie", to: "/products/body" },
