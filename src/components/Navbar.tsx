@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         <div
-          className={`laptop:flex absolute w-full bg-dark_blue laptop:rounded-b-2xl transition-transform duration-200 ${
+          className={`laptop:flex laptop:rounded-b-2xl absolute w-full bg-dark_blue  transition-transform duration-200 ${
             isOpen ? "h-full" : "h-12 translate-y-0"
           }`}
         >
@@ -87,23 +87,26 @@ const Navbar: React.FC = () => {
           </button>
 
           <ul
-            className={`left-0 w-80 transition-transform duration-100 ${
-              isOpen ? "translate-x-0" : "-translate-x-full"
+            className={`laptop:flex laptop:justify-center laptop:w-full left-0 w-80 transition-transform duration-100 ${
+              isOpen
+                ? "translate-x-0 laptop:translate-x-full"
+                : "-translate-x-full "
             } z-4`}
           >
             {navbarData.children.map((menu, i) => (
-              // className="relative group"
-              <li key={i}>
-                <div className="text-white pl-6 p-2 w-auto hover:text-second_blue">
+              <li className="laptop:relative laptop:group" key={i}>
+                <div className="text-white pl-6 p-2 w-auto laptop:w- hover:text-second_blue">
                   {menu.label}
                 </div>
-                {/* <ul className="absolute left-0 hidden w-48 bg-white text-black shadow-lg opacity-0 transform scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:block transition-all duration-200">
-                  {menu.children.map((option, idx) => (
-                    <li key={idx} className="px-4 py-2 hover:text-indigo-900">
-                      {option.label}
-                    </li>
-                  ))}
-                </ul> */}
+                {
+                  <ul className="hidden laptop:relative absolute left-0 w-48 bg-white text-black shadow-lg opacity-0 transform scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:block transition-all duration-200">
+                    {menu.children.map((option, idx) => (
+                      <li key={idx} className="px-4 py-2 hover:text-indigo-900">
+                        {option.label}
+                      </li>
+                    ))}
+                  </ul>
+                }
               </li>
             ))}
           </ul>
