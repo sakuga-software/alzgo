@@ -61,12 +61,10 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         <div
-          className={`laptop:flex laptop:rounded-b-2xl absolute w-full bg-dark_blue  transition-transform duration-200 ${
-            isOpen ? "h-full" : "h-12 translate-y-0"
-          }`}
+          className={`laptop:flex laptop:rounded-b-2xl absolute h-12 w-full bg-dark_blue  transition-transform duration-200`}
         >
           <button
-            className="laptop:hidden flex flex-col gap-1 fixed right-1 m-4"
+            className="laptop:hidden absolute flex flex-col gap-1 right-1 m-4"
             onClick={() => setIsOpen(!isOpen)}
           >
             <span
@@ -85,32 +83,37 @@ const Navbar: React.FC = () => {
               }`}
             />
           </button>
+        </div>
+        <ul
+          className={`laptop:flex laptop:justify-center laptop:w-full w-full`}
+        >
+          {navbarData.children.map((menu, i) => (
+            <li className="laptop:relative laptop:group" key={i}>
+              <div className="laptop:flex  text-white laptop:p-2 w-full hover:text-second_blue">
+                {menu.label}
+              </div>
 
-          <ul
-            className={`laptop:flex laptop:justify-center laptop:w-full left-0 w-80 transition-transform duration-100 ${
-              isOpen
-                ? "translate-x-0 laptop:translate-x-full"
-                : "-translate-x-full "
-            } z-4`}
-          >
-            {navbarData.children.map((menu, i) => (
-              <li className="laptop:relative laptop:group" key={i}>
-                <div className="text-white pl-6 p-2 w-auto laptop:w- hover:text-second_blue">
-                  {menu.label}
-                </div>
+              <div
+                className={`w-full bg-white transition-transform duration-300 ${
+                  isOpen ? "translate-x-0" : "-translate-x-full"
+                } z-2`}
+              >
                 {
-                  <ul className="hidden laptop:relative absolute left-0 w-48 bg-white text-black shadow-lg opacity-0 transform scale-95 group-hover:opacity-100 group-hover:scale-100 group-hover:block transition-all duration-200">
+                  <ul className="laptop:relative laptop:left-0 w-100  laptop:bg-white text-dark_blue laptop:opacity-0 transform laptop:scale-95 laptop:group-hover:opacity-100 laptop:group-hover:scale-100 laptop:group-hover:block transition-all duration-200">
                     {menu.children.map((option, idx) => (
-                      <li key={idx} className="px-4 py-2 hover:text-indigo-900">
+                      <li
+                        key={idx}
+                        className="laptop:px-4 laptop:py-2laptop:hover:text-indigo-900 text-black"
+                      >
                         {option.label}
                       </li>
                     ))}
                   </ul>
                 }
-              </li>
-            ))}
-          </ul>
-        </div>
+              </div>
+            </li>
+          ))}
+        </ul>
       </nav>
     </>
   );
