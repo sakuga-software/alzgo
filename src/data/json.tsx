@@ -1,14 +1,3 @@
-import carosserie from "../assets/navbar/menu/Carrosserie.svg";
-import direction from "../assets/navbar/menu/Direction.svg";
-import divers from "../assets/navbar/menu/Divers.svg";
-import demarrage from "../assets/navbar/menu/Démarrage.svg";
-import freinage from "../assets/navbar/menu/Freinage.svg";
-import habitacle from "../assets/navbar/menu/Habitacle.svg";
-import moteur from "../assets/navbar/menu/Moteur.svg";
-import multimedia from "../assets/navbar/menu/Multimedia.svg";
-import board from "../assets/navbar/menu/Tableau de bord.svg";
-import eclairage from "../assets/navbar/menu/Éclairage.svg";
-
 const siteStructure = {
   id: "home",
   label: "Accueil",
@@ -29,7 +18,7 @@ const siteStructure = {
           id: "products-dashboard",
           label: "Tableau de bord",
           to: "/products/dashboard",
-          img: { board },
+          img: "../assets/navbar/menu/Tableau de bord.svg",
           children: [
             {
               id: "piece-dashboard-LCD",
@@ -47,7 +36,7 @@ const siteStructure = {
           id: "products-starting",
           label: "Démarrage",
           to: "/products/starting",
-          img: { demarrage },
+          img: "../assets/navbar/menu/Démarrage.svg",
           children: [
             {
               id: "piece-starting-key",
@@ -80,7 +69,7 @@ const siteStructure = {
           id: "products-steering",
           label: "Direction",
           to: "/products/steering",
-          img: { direction },
+          img: "../assets/navbar/menu/Direction.svg",
           children: [
             {
               id: "piece-steering-DAE",
@@ -103,7 +92,7 @@ const siteStructure = {
           id: "products-body",
           label: "Carrosserie",
           to: "/products/body",
-          img: { carosserie },
+          img: "../assets/navbar/menu/Carrosserie.svg",
           children: [
             {
               id: "piece-body-retro",
@@ -121,7 +110,7 @@ const siteStructure = {
           id: "products-multimedia",
           label: "Multimedia",
           to: "/products/multimedia",
-          img: { multimedia },
+          img: "../assets/navbar/menu/Multimedia.svg",
           children: [
             {
               id: "piece-multimedia-GPS",
@@ -139,7 +128,7 @@ const siteStructure = {
           id: "products-miscellaneous",
           label: "Divers",
           to: "/products/miscellaneous",
-          img: { divers },
+          img: "../assets/navbar/menu/Divers.svg",
           children: [
             {
               id: "piece-miscellaneous-adBlue",
@@ -167,7 +156,7 @@ const siteStructure = {
           id: "products-engine",
           label: "Moteur",
           to: "/products/engine",
-          img: { moteur },
+          img: "../assets/navbar/menu/Moteur.svg",
           children: [
             {
               id: "piece-engine-BSM",
@@ -210,7 +199,7 @@ const siteStructure = {
           id: "products-cabin",
           label: "Habitacle",
           to: "/products/cabin",
-          img: { habitacle },
+          img: "../assets/navbar/menu/Habitacle.svg",
           children: [
             {
               id: "piece-cabin-Alfa",
@@ -283,7 +272,7 @@ const siteStructure = {
           id: "products-braking",
           label: "Freinage",
           to: "/products/braking",
-          img: { freinage },
+          img: "../assets/navbar/menu/Freinage.svg",
           children: [
             {
               id: "piece-braking-calculateur",
@@ -296,7 +285,7 @@ const siteStructure = {
           id: "products-lighting",
           label: "Éclairage",
           to: "/products/lighting",
-          img: { eclairage },
+          img: "../assets/navbar/menu/Éclairage.svg",
           children: [
             {
               id: "piece-lighting-product",
@@ -316,7 +305,7 @@ const siteStructure = {
           id: "services-dashboard",
           label: "Tableau de bord",
           to: "/repairs-and-services/dashboard",
-          img: { board },
+          img: "../assets/navbar/menu/Tableau de bord.svg",
           children: [
             {
               id: "services-dashboard-compteur",
@@ -339,7 +328,7 @@ const siteStructure = {
           id: "services-engine",
           label: "Moteur",
           to: "/repairs-and-services/engine",
-          img: { moteur },
+          img: "../assets/navbar/menu/Moteur.svg",
           children: [
             {
               id: "services-motor-suppression",
@@ -367,7 +356,7 @@ const siteStructure = {
           id: "services-gearbox",
           label: "Boîte de vitesse",
           to: "/repairs-and-services/gearbox",
-          img: { board },
+          img: "../assets/navbar/menu/Tableau de bord.svg",
           children: [
             {
               id: "services-gearbox-levier",
@@ -385,7 +374,7 @@ const siteStructure = {
           id: "services-steering",
           label: "Direction",
           to: "/repairs-and-services/steering",
-          img: { direction },
+          img: "../assets/navbar/menu/Direction.svg",
           children: [
             {
               id: "services-steering-verrou",
@@ -403,7 +392,7 @@ const siteStructure = {
           id: "services-cabin",
           label: "Habitacle",
           to: "/repairs-and-services/cabin",
-          img: { habitacle },
+          img: "../assets/navbar/menu/Habitacle.svg",
           children: [
             {
               id: "services-cabin-bsi",
@@ -431,7 +420,7 @@ const siteStructure = {
           id: "services-antipollution",
           label: "Antipollution",
           to: "/repairs-and-services/antipollution",
-          img: { habitacle },
+          img: "../assets/navbar/menu/Habitacle.svg",
           children: [
             {
               id: "services-antipollution-compteur",
@@ -459,7 +448,7 @@ const siteStructure = {
           id: "services-multimedia",
           label: "Multimedia",
           to: "/repairs-and-services/multimedia",
-          img: { multimedia },
+          img: "../assets/navbar/menu/Multimedia.svg",
           children: [
             {
               id: "services-multimedia-radio",
@@ -477,7 +466,7 @@ const siteStructure = {
           id: "services-starting",
           label: "Démarrage",
           to: "/repairs-and-services/starting",
-          img: { demarrage },
+          img: "../assets/navbar/menu/Démarrage.svg",
           children: [
             {
               id: "services-starting-key",
@@ -500,7 +489,7 @@ const siteStructure = {
           id: "services-braking",
           label: "Freinage",
           to: "/repairs-and-services/braking",
-          img: { freinage },
+          img: "../assets/navbar/menu/Freinage.svg",
           children: [
             {
               id: "services-braking-repairs",
@@ -523,7 +512,7 @@ const siteStructure = {
           id: "services-lighting",
           label: "Éclairage",
           to: "/repairs-and-services/lighting",
-          img: { eclairage },
+          img: "../assets/navbar/menu/Éclairage.svg",
           children: [
             {
               id: "services-lighting-repairs",
@@ -536,7 +525,7 @@ const siteStructure = {
           id: "services-miscellaneous",
           label: "Divers",
           to: "/repairs-and-services/miscellaneous",
-          img: { divers },
+          img: "../assets/navbar/menu/Divers.svg",
           children: [
             {
               id: "services-miscellaneous-repairs",

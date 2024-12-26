@@ -9,11 +9,19 @@ import shop from "../assets/navbar/shopping-nav.png";
 import logoMobile from "../assets/navbar/logo-nav-mobile.png";
 import logoMobileText from "../assets/navbar/title-logo-mobile.png";
 
+type navbarDataChildren = {
+  id: string;
+  label: string | number | boolean;
+  to: string;
+  img: string;
+  children?: navbarDataChildren[];
+};
+
 type navbarData = {
   id: string;
   label: string | number | boolean;
   to: string;
-  children: string[];
+  children: navbarDataChildren[];
 };
 
 const Navbar: React.FC = () => {
@@ -87,10 +95,10 @@ const Navbar: React.FC = () => {
         <ul
           className={`laptop:flex laptop:justify-center laptop:w-full w-full`}
         >
-          {navbarData.children.map((menu, i) => (
+          {navbarData.children.map((parent, i) => (
             <li className="laptop:relative laptop:group" key={i}>
               <div className="laptop:flex  text-white laptop:p-2 w-full hover:text-second_blue">
-                {menu.label}
+                {parent.label}
               </div>
 
               <div
@@ -100,13 +108,25 @@ const Navbar: React.FC = () => {
               >
                 {
                   <ul className="laptop:relative laptop:left-0 w-100  laptop:bg-white text-dark_blue laptop:opacity-0 transform laptop:scale-95 laptop:group-hover:opacity-100 laptop:group-hover:scale-100 laptop:group-hover:block transition-all duration-200">
-                    {menu.children.map((option, idx) => (
-                      <li
-                        key={idx}
-                        className="laptop:px-4 laptop:py-2laptop:hover:text-indigo-900 text-black"
-                      >
-                        {option.label}
-                      </li>
+                    {parent.children.map((child, idx) => (
+                      <>
+                        <li
+                          key={idx}
+                          className="laptop:px-4 laptop:py-2 laptop:hover:text-indigo-900 text-black"
+                        >
+                          {child.label}
+                          {console.log(child)}
+                          <img src={child.img} />
+                          <ul>
+                            {child.children.map((grandchild, idx) => (
+                              <>
+                                {console.log(grandchild)}
+                                <li>{grandchild.label}</li>
+                              </>
+                            ))}
+                          </ul>
+                        </li>
+                      </>
                     ))}
                   </ul>
                 }
