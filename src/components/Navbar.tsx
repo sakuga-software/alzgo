@@ -115,15 +115,21 @@ const Navbar: React.FC = () => {
                           className="laptop:px-4 laptop:py-2 laptop:hover:text-indigo-900 text-black"
                         >
                           {child.label}
-                          {console.log(child)}
-                          <img src={child.img} />
+                          <img src={child?.img} />
                           <ul>
-                            {child.children.map((grandchild, idx) => (
-                              <>
-                                {console.log(grandchild)}
-                                <li>{grandchild.label}</li>
-                              </>
-                            ))}
+                            {child.children?.map(
+                              (
+                                grandchild: {
+                                  label: string | number | boolean;
+                                },
+                                idx: number
+                              ) => (
+                                <>
+                                  {/* {console.log(grandchild)} */}
+                                  <li key={idx}>{grandchild.label}</li>
+                                </>
+                              )
+                            )}
                           </ul>
                         </li>
                       </>
