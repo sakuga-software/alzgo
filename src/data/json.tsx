@@ -18,7 +18,7 @@ const siteStructure = {
           id: "products-dashboard",
           label: "Tableau de bord",
           to: "/products/dashboard",
-          img: "../assets/navbar/menu/Tableau de bord.svg",
+          img: "../assets/navbar/menu/board.svg",
           children: [
             {
               id: "piece-dashboard-LCD",
@@ -36,7 +36,7 @@ const siteStructure = {
           id: "products-starting",
           label: "Démarrage",
           to: "/products/starting",
-          img: "../assets/navbar/menu/Démarrage.svg",
+          img: "../assets/navbar/menu/démarrage.svg",
           children: [
             {
               id: "piece-starting-key",
@@ -92,7 +92,7 @@ const siteStructure = {
           id: "products-body",
           label: "Carrosserie",
           to: "/products/body",
-          img: "../assets/navbar/menu/Carrosserie.svg",
+          img: "../assets/navbar/menu/carrosserie.svg",
           children: [
             {
               id: "piece-body-retro",
@@ -110,7 +110,7 @@ const siteStructure = {
           id: "products-multimedia",
           label: "Multimedia",
           to: "/products/multimedia",
-          img: "../assets/navbar/menu/Multimedia.svg",
+          img: "../assets/navbar/menu/multimedia.svg",
           children: [
             {
               id: "piece-multimedia-GPS",
@@ -128,7 +128,7 @@ const siteStructure = {
           id: "products-miscellaneous",
           label: "Divers",
           to: "/products/miscellaneous",
-          img: "../assets/navbar/menu/Divers.svg",
+          img: "../assets/navbar/menu/divers.svg",
           children: [
             {
               id: "piece-miscellaneous-adBlue",
@@ -156,7 +156,7 @@ const siteStructure = {
           id: "products-engine",
           label: "Moteur",
           to: "/products/engine",
-          img: "../assets/navbar/menu/Moteur.svg",
+          img: "../assets/navbar/menu/moteur.svg",
           children: [
             {
               id: "piece-engine-BSM",
@@ -199,7 +199,7 @@ const siteStructure = {
           id: "products-cabin",
           label: "Habitacle",
           to: "/products/cabin",
-          img: "../assets/navbar/menu/Habitacle.svg",
+          img: "../assets/navbar/menu/habitacle.svg",
           children: [
             {
               id: "piece-cabin-Alfa",
@@ -272,7 +272,7 @@ const siteStructure = {
           id: "products-braking",
           label: "Freinage",
           to: "/products/braking",
-          img: "../assets/navbar/menu/Freinage.svg",
+          img: "../assets/navbar/menu/freinage.svg",
           children: [
             {
               id: "piece-braking-calculateur",
@@ -285,7 +285,7 @@ const siteStructure = {
           id: "products-lighting",
           label: "Éclairage",
           to: "/products/lighting",
-          img: "../assets/navbar/menu/Éclairage.svg",
+          img: "../assets/navbar/menu/eclairage.svg",
           children: [
             {
               id: "piece-lighting-product",
@@ -305,7 +305,7 @@ const siteStructure = {
           id: "services-dashboard",
           label: "Tableau de bord",
           to: "/repairs-and-services/dashboard",
-          img: "../assets/navbar/menu/Tableau de bord.svg",
+          img: "../assets/navbar/menu/board.svg",
           children: [
             {
               id: "services-dashboard-compteur",
@@ -328,7 +328,7 @@ const siteStructure = {
           id: "services-engine",
           label: "Moteur",
           to: "/repairs-and-services/engine",
-          img: "../assets/navbar/menu/Moteur.svg",
+          img: "../assets/navbar/menu/moteur.svg",
           children: [
             {
               id: "services-motor-suppression",
@@ -356,7 +356,7 @@ const siteStructure = {
           id: "services-gearbox",
           label: "Boîte de vitesse",
           to: "/repairs-and-services/gearbox",
-          img: "../assets/navbar/menu/Tableau de bord.svg",
+          img: "../assets/navbar/menu/board.svg",
           children: [
             {
               id: "services-gearbox-levier",
@@ -374,7 +374,7 @@ const siteStructure = {
           id: "services-steering",
           label: "Direction",
           to: "/repairs-and-services/steering",
-          img: "../assets/navbar/menu/Direction.svg",
+          img: "../assets/navbar/menu/direction.svg",
           children: [
             {
               id: "services-steering-verrou",
@@ -392,7 +392,7 @@ const siteStructure = {
           id: "services-cabin",
           label: "Habitacle",
           to: "/repairs-and-services/cabin",
-          img: "../assets/navbar/menu/Habitacle.svg",
+          img: "../assets/navbar/menu/habitacle.svg",
           children: [
             {
               id: "services-cabin-bsi",
@@ -420,7 +420,7 @@ const siteStructure = {
           id: "services-antipollution",
           label: "Antipollution",
           to: "/repairs-and-services/antipollution",
-          img: "../assets/navbar/menu/Habitacle.svg",
+          img: "../assets/navbar/menu/habitacle.svg",
           children: [
             {
               id: "services-antipollution-compteur",
@@ -448,7 +448,7 @@ const siteStructure = {
           id: "services-multimedia",
           label: "Multimedia",
           to: "/repairs-and-services/multimedia",
-          img: "../assets/navbar/menu/Multimedia.svg",
+          img: "../assets/navbar/menu/multimedia.svg",
           children: [
             {
               id: "services-multimedia-radio",
@@ -466,7 +466,7 @@ const siteStructure = {
           id: "services-starting",
           label: "Démarrage",
           to: "/repairs-and-services/starting",
-          img: "../assets/navbar/menu/Démarrage.svg",
+          img: "../assets/navbar/menu/démarrage.svg",
           children: [
             {
               id: "services-starting-key",
@@ -489,7 +489,7 @@ const siteStructure = {
           id: "services-braking",
           label: "Freinage",
           to: "/repairs-and-services/braking",
-          img: "../assets/navbar/menu/Freinage.svg",
+          img: "../assets/navbar/menu/freinage.svg",
           children: [
             {
               id: "services-braking-repairs",
@@ -512,7 +512,7 @@ const siteStructure = {
           id: "services-lighting",
           label: "Éclairage",
           to: "/repairs-and-services/lighting",
-          img: "../assets/navbar/menu/Éclairage.svg",
+          img: "../assets/navbar/menu/eclairage.svg",
           children: [
             {
               id: "services-lighting-repairs",
@@ -525,7 +525,7 @@ const siteStructure = {
           id: "services-miscellaneous",
           label: "Divers",
           to: "/repairs-and-services/miscellaneous",
-          img: "../assets/navbar/menu/Divers.svg",
+          img: "../assets/navbar/menu/divers.svg",
           children: [
             {
               id: "services-miscellaneous-repairs",

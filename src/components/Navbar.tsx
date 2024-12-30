@@ -8,13 +8,20 @@ import favoris from "../assets/navbar/favoris-nav.png";
 import shop from "../assets/navbar/shopping-nav.png";
 import logoMobile from "../assets/navbar/logo-nav-mobile.png";
 import logoMobileText from "../assets/navbar/title-logo-mobile.png";
+import arrowRight from "../assets/navbar/menu/arrowRight.png";
+
+type navbarDataGrandchildren = {
+  id: string;
+  label: string | number | boolean;
+  to: string;
+};
 
 type navbarDataChildren = {
   id: string;
   label: string | number | boolean;
   to: string;
-  img: string;
-  children?: navbarDataChildren[];
+  img?: string;
+  children?: navbarDataGrandchildren[];
 };
 
 type navbarData = {
@@ -26,6 +33,17 @@ type navbarData = {
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openGrandchildren, setOpenGrandchildren] = useState<
+    Record<string, boolean>
+  >({});
+
+  const toggleGrandchildren = (childId: string) => {
+    setOpenGrandchildren((prev) => ({
+      ...prev,
+      [childId]: !prev[childId],
+    }));
+  };
+
   return (
     <>
       <nav className="flex-col w-full ">
@@ -112,25 +130,42 @@ const Navbar: React.FC = () => {
                       <>
                         <li
                           key={idx}
-                          className="laptop:px-4 laptop:py-2 laptop:hover:text-indigo-900 text-black"
+                          className="laptop:px-4 laptop:py-2 text-black m-6"
                         >
-                          {child.label}
-                          <img src={child?.img} />
-                          <ul>
-                            {child.children?.map(
-                              (
-                                grandchild: {
-                                  label: string | number | boolean;
-                                },
-                                idx: number
-                              ) => (
-                                <>
-                                  {/* {console.log(grandchild)} */}
-                                  <li key={idx}>{grandchild.label}</li>
-                                </>
-                              )
-                            )}
-                          </ul>
+                          <div
+                            className="flex justify-between group w-full"
+                            onClick={() => toggleGrandchildren(child.id)}
+                          >
+                            <img src={child?.img} />
+                            <h3>{child.label}</h3>
+                            <img
+                              src={arrowRight}
+                              alt="grandChildArrow"
+                              className={`laptop:hidden transition duration-200 ${
+                                openGrandchildren[child.id]
+                                  ? "rotate-0"
+                                  : "rotate-180"
+                              }`}
+                            />
+                          </div>
+                          <hr className="border-black w-100" />
+
+                          {openGrandchildren[child.id] && (
+                            <ul>
+                              {child.children?.map(
+                                (
+                                  grandchild: {
+                                    label: string | number | boolean;
+                                  },
+                                  idx: number
+                                ) => (
+                                  <>
+                                    <li key={idx}>{grandchild.label}</li>
+                                  </>
+                                )
+                              )}
+                            </ul>
+                          )}
                         </li>
                       </>
                     ))}

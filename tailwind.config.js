@@ -7,7 +7,7 @@ export default {
         dark_blue: "#062442",
         second_blue: "#0074E8",
         white: "#F8FCFF",
-        black: "041A2D",
+        black: "#041A2D",
       },
       width: {
         tablet: "640px",
