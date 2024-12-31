@@ -36,6 +36,7 @@ const Navbar: React.FC = () => {
   const [openGrandchildren, setOpenGrandchildren] = useState<
     Record<string, boolean>
   >({});
+  const [hoveredParent, setHoveredParent] = useState<string | null>(null);
 
   const toggleGrandchildren = (childId: string) => {
     setOpenGrandchildren((prev) => ({
@@ -87,7 +88,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
         <div
-          className={`laptop:flex laptop:rounded-b-2xl absolute h-12 w-full bg-dark_blue  transition-transform duration-200`}
+          className={`laptop:flex laptop:rounded-b-2xl h-12 w-full bg-dark_blue laptop:absolute transition-transform duration-200`}
         >
           <button
             className="laptop:hidden absolute flex flex-col gap-1 right-1 m-4"
@@ -110,30 +111,62 @@ const Navbar: React.FC = () => {
             />
           </button>
         </div>
-        <ul
-          className={`laptop:flex laptop:justify-center laptop:w-full w-full`}
-        >
+        <ul className={`laptop:flex laptop:justify-center w-full`}>
           {navbarData.children.map((parent, i) => (
-            <li className="laptop:relative laptop:group" key={i}>
-              <div className="laptop:flex  text-white laptop:p-2 w-full hover:text-second_blue">
+            <li
+              className="laptop:relative laptop:group"
+              key={i}
+              onMouseEnter={() => setHoveredParent(parent.id)}
+              onMouseLeave={() => setHoveredParent(null)}
+            >
+              <div className="laptop:flex hidden text-white laptop:p-2 w-full hover:text-second_blue">
                 {parent.label}
               </div>
+              {/* Laptop/Dekstop version */}
+              <div className="laptop:grid hidden">
+                {hoveredParent === parent.id && (
+                  <ul className="laptop:grid bg-white fixed left-[10%] hidden grid-rows-3 grid-cols-4 gap-8 w-[80%] pl-8 pr-8">
+                    {parent.children.map((child, idx) => (
+                      <>
+                        <li className="text-base">
+                          <img src={child.img} key={idx} />
+                          {child.label}
 
+                          <ul>
+                            {child.children?.map(
+                              (
+                                grandChild: {
+                                  label: string | number | boolean;
+                                },
+                                idx: number
+                              ) => (
+                                <>
+                                  <li className="text-sm" key={idx}>
+                                    {grandChild.label}
+                                  </li>
+                                </>
+                              )
+                            )}
+                          </ul>
+                        </li>
+                      </>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              {/* Mobile version */}
               <div
-                className={`w-full bg-white transition-transform duration-300 ${
+                className={`laptop:hidden w-full bg-white transition-transform duration-300 ${
                   isOpen ? "translate-x-0" : "-translate-x-full"
                 } z-2`}
               >
                 {
-                  <ul className="laptop:relative laptop:left-0 w-100  laptop:bg-white text-dark_blue laptop:opacity-0 transform laptop:scale-95 laptop:group-hover:opacity-100 laptop:group-hover:scale-100 laptop:group-hover:block transition-all duration-200">
+                  <ul className="w-100 text-dark_blue transform  transition-all duration-200 ">
                     {parent.children.map((child, idx) => (
                       <>
-                        <li
-                          key={idx}
-                          className="laptop:px-4 laptop:py-2 text-black m-6"
-                        >
+                        <li key={idx} className=" text-black p-4 pr-6 pl-6">
                           <div
-                            className="flex justify-between group w-full"
+                            className=" flex justify-between group w-full"
                             onClick={() => toggleGrandchildren(child.id)}
                           >
                             <img src={child?.img} />
@@ -141,7 +174,7 @@ const Navbar: React.FC = () => {
                             <img
                               src={arrowRight}
                               alt="grandChildArrow"
-                              className={`laptop:hidden transition duration-200 ${
+                              className={`transition duration-200 ${
                                 openGrandchildren[child.id]
                                   ? "rotate-0"
                                   : "rotate-180"
@@ -149,9 +182,8 @@ const Navbar: React.FC = () => {
                             />
                           </div>
                           <hr className="border-black w-100" />
-
                           {openGrandchildren[child.id] && (
-                            <ul>
+                            <ul className="m-8">
                               {child.children?.map(
                                 (
                                   grandchild: {
@@ -160,7 +192,9 @@ const Navbar: React.FC = () => {
                                   idx: number
                                 ) => (
                                   <>
-                                    <li key={idx}>{grandchild.label}</li>
+                                    <li key={idx} className="text-base mb-3">
+                                      {grandchild.label}
+                                    </li>
                                   </>
                                 )
                               )}
