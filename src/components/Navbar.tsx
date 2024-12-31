@@ -125,13 +125,18 @@ const Navbar: React.FC = () => {
               {/* Laptop/Dekstop version */}
               <div className="laptop:grid hidden">
                 {hoveredParent === parent.id && (
-                  <ul className="laptop:grid bg-white fixed left-[10%] hidden grid-rows-3 grid-cols-4 gap-8 w-[80%] pl-8 pr-8">
+                  <ul className="laptop:grid bg-white fixed left-[10%] hidden grid-rows-3 grid-cols-4 gap-8 w-[80%] p-8">
                     {parent.children.map((child, idx) => (
                       <>
-                        <li className="text-base">
+                        <li
+                          className={`text-base ${
+                            child.id === "products-cabin"
+                              ? "row-span-2"
+                              : "row-span-1"
+                          }`}
+                        >
                           <img src={child.img} key={idx} />
-                          {child.label}
-
+                          <div className="mb-2">{child.label}</div>
                           <ul>
                             {child.children?.map(
                               (
