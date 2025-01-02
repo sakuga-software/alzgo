@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
+
 import navbarData from "../data/json";
 import logoNav from "../assets/navbar/logo-nav.png";
 import loupe from "../assets/navbar/loupe.png";
@@ -28,7 +29,7 @@ type navbarData = {
   id: string;
   label: string | number | boolean;
   to: string;
-  children: navbarDataChildren[];
+  children?: navbarDataChildren[];
 };
 
 const Navbar: React.FC = () => {
@@ -112,7 +113,7 @@ const Navbar: React.FC = () => {
           </button>
         </div>
         <ul className={`laptop:flex laptop:justify-center w-full`}>
-          {navbarData.children.map((parent, i) => (
+          {navbarData.children?.map((parent, i) => (
             <li
               className="laptop:relative laptop:group"
               key={i}
@@ -124,38 +125,43 @@ const Navbar: React.FC = () => {
               </div>
               {/* Laptop/Dekstop version */}
               <div className="laptop:grid hidden">
-                {hoveredParent === parent.id && (
+                {hoveredParent === parent.id && parent.children.length > 0 && (
                   <ul className="laptop:grid bg-white fixed left-[10%] hidden grid-rows-3 grid-cols-4 gap-8 w-[80%] p-8">
-                    {parent.children.map((child, idx) => (
-                      <>
-                        <li
-                          className={`text-base ${
-                            child.id === "products-cabin"
-                              ? "row-span-2"
-                              : "row-span-1"
-                          }`}
-                        >
-                          <img src={child.img} key={idx} />
-                          <div className="mb-2">{child.label}</div>
-                          <ul>
-                            {child.children?.map(
-                              (
-                                grandChild: {
-                                  label: string | number | boolean;
-                                },
-                                idx: number
-                              ) => (
-                                <>
-                                  <li className="text-sm" key={idx}>
-                                    {grandChild.label}
-                                  </li>
-                                </>
-                              )
-                            )}
-                          </ul>
-                        </li>
-                      </>
-                    ))}
+                    {parent.children?.map(
+                      (child: navbarDataChildren, idx: number) => (
+                        <>
+                          <li
+                            className={`text-base ${
+                              child.id === "products-cabin"
+                                ? "row-span-2"
+                                : "row-span-1"
+                            }`}
+                          >
+                            <img src={child?.img} key={idx} />
+                            <div className="mb-2">{child.label}</div>
+                            <ul>
+                              {child.children?.map(
+                                (
+                                  grandChild: navbarDataGrandchildren,
+                                  idx: number
+                                ) => (
+                                  <>
+                                    <li className="text-sm" key={idx}>
+                                      <a
+                                        href={grandChild.to}
+                                        key={grandChild.id}
+                                      >
+                                        {grandChild.label}
+                                      </a>
+                                    </li>
+                                  </>
+                                )
+                              )}
+                            </ul>
+                          </li>
+                        </>
+                      )
+                    )}
                   </ul>
                 )}
               </div>
@@ -167,47 +173,49 @@ const Navbar: React.FC = () => {
               >
                 {
                   <ul className="w-100 text-dark_blue transform  transition-all duration-200 ">
-                    {parent.children.map((child, idx) => (
-                      <>
-                        <li key={idx} className=" text-black p-4 pr-6 pl-6">
-                          <div
-                            className=" flex justify-between group w-full"
-                            onClick={() => toggleGrandchildren(child.id)}
-                          >
-                            <img src={child?.img} />
-                            <h3>{child.label}</h3>
-                            <img
-                              src={arrowRight}
-                              alt="grandChildArrow"
-                              className={`transition duration-200 ${
-                                openGrandchildren[child.id]
-                                  ? "rotate-0"
-                                  : "rotate-180"
-                              }`}
-                            />
-                          </div>
-                          <hr className="border-black w-100" />
-                          {openGrandchildren[child.id] && (
-                            <ul className="m-8">
-                              {child.children?.map(
-                                (
-                                  grandchild: {
-                                    label: string | number | boolean;
-                                  },
-                                  idx: number
-                                ) => (
-                                  <>
-                                    <li key={idx} className="text-base mb-3">
-                                      {grandchild.label}
-                                    </li>
-                                  </>
-                                )
-                              )}
-                            </ul>
-                          )}
-                        </li>
-                      </>
-                    ))}
+                    {parent.children.map(
+                      (child: navbarDataChildren, idx: number) => (
+                        <>
+                          <li key={idx} className=" text-black p-4 pr-6 pl-6">
+                            <div
+                              className=" flex justify-between group w-full"
+                              onClick={() => toggleGrandchildren(child.id)}
+                            >
+                              <img src={child?.img} />
+                              <h3>{child.label}</h3>
+                              <img
+                                src={arrowRight}
+                                alt="grandChildArrow"
+                                className={`transition duration-200 ${
+                                  openGrandchildren[child.id]
+                                    ? "rotate-0"
+                                    : "rotate-180"
+                                }`}
+                              />
+                            </div>
+                            <hr className="border-black w-100" />
+                            {openGrandchildren[child.id] && (
+                              <ul className="m-8">
+                                {child.children?.map(
+                                  (
+                                    grandchild: navbarDataGrandchildren,
+                                    idx: number
+                                  ) => (
+                                    <>
+                                      <li key={idx} className="text-base mb-3">
+                                        <a href={child.to} key={child.id}>
+                                          {grandchild.label}
+                                        </a>
+                                      </li>
+                                    </>
+                                  )
+                                )}
+                              </ul>
+                            )}
+                          </li>
+                        </>
+                      )
+                    )}
                   </ul>
                 }
               </div>
