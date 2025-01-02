@@ -137,7 +137,11 @@ const Navbar: React.FC = () => {
                                 : "row-span-1"
                             }`}
                           >
-                            <img src={child?.img} key={idx} />
+                            <img
+                              src={child.img}
+                              key={idx}
+                              className="laptop:w-16"
+                            />
                             <div className="mb-2">{child.label}</div>
                             <ul>
                               {child.children?.map(
@@ -176,17 +180,21 @@ const Navbar: React.FC = () => {
                     {parent.children.map(
                       (child: navbarDataChildren, idx: number) => (
                         <>
-                          <li key={idx} className=" text-black p-4 pr-6 pl-6">
+                          <li key={idx} className=" text-black">
                             <div
-                              className=" flex justify-between group w-full"
+                              className=" flex justify-between items-center group w-full p-4 pl-6 pr-6"
                               onClick={() => toggleGrandchildren(child.id)}
                             >
-                              <img src={child?.img} />
+                              <img
+                                src={child?.img}
+                                key={child.id}
+                                className="w-16"
+                              />
                               <h3>{child.label}</h3>
                               <img
                                 src={arrowRight}
                                 alt="grandChildArrow"
-                                className={`transition duration-200 ${
+                                className={`w-auto h-8 transition duration-200 ${
                                   openGrandchildren[child.id]
                                     ? "rotate-0"
                                     : "rotate-180"
