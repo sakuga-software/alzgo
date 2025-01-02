@@ -479,7 +479,7 @@ const siteStructure = {
           id: "services-starting",
           label: "Démarrage",
           to: "/repairs-and-services/starting",
-          img: "../assets/navbar/menu/démarrage.svg",
+          img: démarrage,
           children: [
             {
               id: "services-starting-key",
