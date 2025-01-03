@@ -49,6 +49,7 @@ export default function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
                           (child: NavbarItem, idx: number) => (
                             <>
                               <li
+                                key={child.id}
                                 className={`text-base ${
                                   child.id === "products-cabin"
                                     ? "row-span-2"

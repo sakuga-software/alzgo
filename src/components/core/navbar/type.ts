@@ -3,5 +3,5 @@ export type NavbarItem = {
   label: string | number | boolean;
   to: string;
   img?: string;
-  children?: NavbarItem[];
+  children: NavbarItem[];
 };
