@@ -59,7 +59,7 @@ export default function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
                                       <>
                                         <li className="text-sm" key={idx}>
                                           <a
-                                            className="font-normal text-black"
+                                            className="font-normal text-black hover:text-second_blue"
                                             href={grandChild.to}
                                             key={grandChild.id}
                                           >
