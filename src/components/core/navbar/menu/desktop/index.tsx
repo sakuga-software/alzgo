@@ -1,5 +1,4 @@
 import { NavbarItem } from "../../type";
-// import CoreNavbarDesktopTrigger from "./trigger";
 import { useState } from "react";
 
 export default function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
@@ -26,7 +25,7 @@ export default function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
                 onMouseEnter={() => setHoveredParent(parent.id)}
                 onMouseLeave={() => setHoveredParent(null)}
               >
-                <div className="flex font-medium text-white p-2 ml-4 mr-4 w-full hover:text-second_blue">
+                <div className="flex font-medium text-white p-2 ml-7 mr-7 w-full hover:text-second_blue">
                   <a key={parent.id}>{parent.label}</a>
                 </div>
                 <div className="grid">
