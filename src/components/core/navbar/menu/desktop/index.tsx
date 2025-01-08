@@ -1,30 +1,20 @@
 import { NavbarItem } from "../../type";
+// import CoreNavbarDesktopTrigger from "./trigger";
 import { useState } from "react";
 
 export default function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
   const [hoveredParent, setHoveredParent] = useState<string | null>(null);
   return (
     <>
-      <nav className="flex-col w-full hidden laptop:flex">
+      <nav className="flex-col w-full hidden laptop:flex font-host">
         {/* <div className="flex justify-center w-full bg-dark_blue px-[10px] py-2 gap-4">
           {data.children?.map((item) => (
             <div className="group">
               <p className="text-white cursor-pointer">{item.label}</p>
-
-               In another file 
-              {item.children && item.children.length > 0 && (
-                <div className="hidden group-hover:block absolute">
-                  {item.children?.map((child) => (
-                    <div className="flex justify-center w-full bg-dark_blue px-[10px] py-2 gap-4">
-                      <p className="text-white cursor-pointer">{child.label}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
+              <CoreNavbarDesktopTrigger data={item} />
             </div>
           ))}
         </div> */}
-
         <div
           className={`laptop:flex laptop:rounded-b-2xl h-12 w-full bg-dark_blue laptop:absolute transition-transform duration-200`}
         >
@@ -36,10 +26,8 @@ export default function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
                 onMouseEnter={() => setHoveredParent(parent.id)}
                 onMouseLeave={() => setHoveredParent(null)}
               >
-                <div className="flex  text-white p-2 ml-4 mr-4 w-full hover:text-second_blue">
-                  <a href={parent.to} key={parent.id}>
-                    {parent.label}
-                  </a>
+                <div className="flex font-medium text-white p-2 ml-4 mr-4 w-full hover:text-second_blue">
+                  <a key={parent.id}>{parent.label}</a>
                 </div>
                 <div className="grid">
                   {hoveredParent === parent.id &&
@@ -61,13 +49,16 @@ export default function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
                                   key={idx}
                                   className="laptop:w-16"
                                 />
-                                <div className="mb-2">{child.label}</div>
+                                <div className="mb-2 mt-2 font-medium text-black">
+                                  {child.label}
+                                </div>
                                 <ul>
                                   {child.children?.map(
                                     (grandChild: NavbarItem, idx: number) => (
                                       <>
                                         <li className="text-sm" key={idx}>
                                           <a
+                                            className="font-normal text-black"
                                             href={grandChild.to}
                                             key={grandChild.id}
                                           >

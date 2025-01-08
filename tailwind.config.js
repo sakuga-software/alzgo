@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        host: ["Host Grotesk", "sans-serif"],
+      },
       colors: {
         dark_blue: "#062442",
         second_blue: "#0074E8",
