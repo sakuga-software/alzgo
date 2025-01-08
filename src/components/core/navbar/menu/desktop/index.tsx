@@ -1,4 +1,5 @@
 import { NavbarItem } from "../../type";
+// import CoreNavbarDesktopTrigger from "./trigger";
 import { useState } from "react";
 
 export default function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
