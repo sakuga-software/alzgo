@@ -1,10 +1,10 @@
-import Navbar from "../src/components/core/navbar/index";
+import Navbar from '../src/components/core/navbar/index';
 
 function App() {
   return (
     <>
       <Navbar />
-      <div className="h-[50vh] w-100  bg-indigo-500"></div>
+      <div className="w-100 h-[50vh] bg-indigo-500"></div>
     </>
   );
 }
