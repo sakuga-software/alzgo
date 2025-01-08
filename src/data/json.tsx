@@ -1,15 +1,15 @@
-import board from "../assets/navbar/menu/board.svg";
-import carrosserie from "../assets/navbar/menu/carrosserie.svg";
-import démarrage from "../assets/navbar/menu/démarrage.svg";
-import direction from "../assets/navbar/menu/direction.svg";
-import divers from "../assets/navbar/menu/divers.svg";
-import eclairage from "../assets/navbar/menu/eclairage.svg";
-import freinage from "../assets/navbar/menu/freinage.svg";
-import habitacle from "../assets/navbar/menu/habitacle.svg";
-import moteur from "../assets/navbar/menu/moteur.svg";
-import multimedia from "../assets/navbar/menu/multimedia.svg";
-import vitesse from "../assets/navbar/menu/vitesse.png";
-import antipollution from "../assets/navbar/menu/antipollution.png";
+import board from '../assets/navbar/menu/board.svg';
+import carrosserie from '../assets/navbar/menu/carrosserie.svg';
+import démarrage from '../assets/navbar/menu/démarrage.svg';
+import direction from '../assets/navbar/menu/direction.svg';
+import divers from '../assets/navbar/menu/divers.svg';
+import eclairage from '../assets/navbar/menu/eclairage.svg';
+import freinage from '../assets/navbar/menu/freinage.svg';
+import habitacle from '../assets/navbar/menu/habitacle.svg';
+import moteur from '../assets/navbar/menu/moteur.svg';
+import multimedia from '../assets/navbar/menu/multimedia.svg';
+import vitesse from '../assets/navbar/menu/vitesse.svg';
+import antipollution from '../assets/navbar/menu/antipollution.svg';
 
 const siteStructure = {
   id: 'home',
