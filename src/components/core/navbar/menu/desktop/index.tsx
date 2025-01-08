@@ -31,6 +31,7 @@ export default function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
                 </div>
                 <div className="grid">
                   {hoveredParent === parent.id &&
+                    parent.children &&
                     parent.children?.length > 0 && (
                       <ul className="laptop:grid bg-white fixed left-[10%] hidden grid-rows-3 grid-cols-4 gap-8 w-[80%] p-8">
                         {parent.children?.map(
