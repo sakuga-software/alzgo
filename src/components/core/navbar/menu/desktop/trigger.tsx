@@ -1,13 +1,15 @@
 import { NavbarItem } from '../../type';
+import { cn } from '../../../../../utils/cn';
+
 function CoreNavbarDesktopTrigger({ data }: { data: NavbarItem }) {
   if (!data.children || data.children.length === 0) {
     return null;
   }
 
   return (
-    <div className="absolute hidden group-hover:block">
+    <div className="hidden group-hover:block laptop:absolute">
       {data.children?.map((child) => (
-        //           <ul className="laptop:grid bg-white fixed left-[10%] hidden grid-rows-3 grid-cols-4 gap-8 w-[80%] p-8">
+        //<ul className="laptop:grid bg-white fixed left-[10%] hidden grid-rows-3 grid-cols-4 gap-8 w-[80%] p-8">
         // {parent.children?.map(
         //   (child: NavbarItem, idx: number) => (
         //     <>
@@ -26,13 +28,15 @@ function CoreNavbarDesktopTrigger({ data }: { data: NavbarItem }) {
         //         />
         //         <div className="mb-2">{child.label}</div>
         //         <ul>
-        <div className="flex w-full justify-center gap-4 bg-white px-[10px] py-2" key={child.id}>
+        <div className="w-full flex-col justify-center gap-4 bg-white px-[10px] py-2 align-middle" key={child.id}>
           <img src={child?.img} className="w-16" />
-          <p className="cursor-pointer text-black">{child.label}</p>
-          <div>
+          <p className="cursor-pointer font-normal text-black">{child.label}</p>
+          <div className="w-[80%] bg-white p-8 laptop:grid">
             {child.children?.map((grandchild) => (
-              <div key={grandchild.id}>
-                <a href={grandchild.to}>{grandchild.label}</a>
+              <div className="text-sm" key={grandchild.id}>
+                <a className="font-normal text-black hover:text-second_blue" key={grandchild.id} href={grandchild.to}>
+                  {grandchild.label}
+                </a>
               </div>
             ))}
           </div>

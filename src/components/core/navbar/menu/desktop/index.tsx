@@ -1,17 +1,17 @@
 import { cn } from '../../../../../utils/cn';
 import { NavbarItem } from '../../type';
 import { useState } from 'react';
-// import CoreNavbarDesktopTrigger from "./trigger";
+// import CoreNavbarDesktopTrigger from './trigger';
 
 function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
   const [hoveredParent, setHoveredParent] = useState<string | null>(null);
   return (
     <>
       <nav className="hidden w-full flex-col font-host laptop:flex">
-        {/* <div className="flex justify-center w-full bg-dark_blue px-[10px] py-2 gap-4">
+        {/* <div className="flex w-full justify-center gap-4 bg-dark_blue px-[10px] py-2">
           {data.children?.map((item) => (
             <div className="group">
-              <p className="text-white cursor-pointer">{item.label}</p>
+              <p className="cursor-pointer text-white">{item.label}</p>
               <CoreNavbarDesktopTrigger data={item} />
             </div>
           ))}
@@ -45,7 +45,7 @@ function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
                               : 'row-span-1'
                           )}
                         >
-                          <img src={child.img} className="laptop:w-16" />
+                          <img src={child.img} className="laptop:w-20" />
                           <div className="mb-2 mt-2 font-medium text-black">{child.label}</div>
                           <ul>
                             {child.children?.map((grandChild) => (

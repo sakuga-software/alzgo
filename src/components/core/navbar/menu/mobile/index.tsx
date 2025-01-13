@@ -44,7 +44,7 @@ function CoreNavbarMenuMobile({ data }: { data: NavbarItem }) {
                         className="group flex w-full items-center justify-between p-4 pl-6 pr-6"
                         onClick={() => toggleGrandchildren(child.id)}
                       >
-                        <img src={child?.img} key={child.id} className="w-16" />
+                        <img src={child?.img} key={child.id} className="w-20" />
                         <h3>{child.label}</h3>
                         <img
                           src={arrowRight}
