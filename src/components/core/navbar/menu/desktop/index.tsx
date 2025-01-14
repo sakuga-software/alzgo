@@ -1,21 +1,12 @@
 import { cn } from '../../../../../utils/cn';
 import { NavbarItem } from '../../type';
 import { useState } from 'react';
-// import CoreNavbarDesktopTrigger from './trigger';
 
 function CoreNavbarMenuDesktop({ data }: { data: NavbarItem }) {
   const [hoveredParent, setHoveredParent] = useState<string | null>(null);
   return (
     <>
       <nav className="hidden w-full flex-col font-host laptop:flex">
-        {/* <div className="flex w-full justify-center gap-4 bg-dark_blue px-[10px] py-2">
-          {data.children?.map((item) => (
-            <div className="group">
-              <p className="cursor-pointer text-white">{item.label}</p>
-              <CoreNavbarDesktopTrigger data={item} />
-            </div>
-          ))}
-        </div> */}
         <div
           className={`h-12 w-full bg-dark_blue transition-transform duration-200 laptop:absolute laptop:flex laptop:rounded-b-2xl`}
         >
