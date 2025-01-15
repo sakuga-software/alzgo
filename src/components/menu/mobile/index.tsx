@@ -1,8 +1,8 @@
-import arrowRight from '../../../../../assets/navbar/menu/arrowRight.png';
+import arrowRight from '../../../assets/navbar/menu/arrowRight.png';
 import CoreNavbarMenuMobileTrigger from './trigger';
-import { NavbarItem } from '../../type';
+import { NavbarItem } from '../../../types/navbar-item';
 import * as React from 'react';
-import { cn } from '../../../../../utils/cn';
+import { cn } from '../../../utils/cn';
 
 function CoreNavbarMenuMobile({ data }: { data: NavbarItem }) {
   const [isOpen, setIsOpen] = React.useState(false);

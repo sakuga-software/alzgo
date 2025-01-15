@@ -1,10 +1,10 @@
-import logoNav from '../../../assets/navbar/logo-nav.png';
-import loupe from '../../../assets/navbar/loupe.png';
-import account from '../../../assets/navbar/account-nav.png';
-import favoris from '../../../assets/navbar/favoris-nav.png';
-import shop from '../../../assets/navbar/shopping-nav.png';
-import logoMobile from '../../../assets/navbar/logo-nav-mobile.png';
-import logoMobileText from '../../../assets/navbar/title-logo-mobile.png';
+import logoNav from '../assets/navbar/logo-nav.png';
+import loupe from '../assets/navbar/loupe.png';
+import account from '../assets/navbar/account-nav.png';
+import favoris from '../assets/navbar/favoris-nav.png';
+import shop from '../assets/navbar/shopping-nav.png';
+import logoMobile from '../assets/navbar/logo-nav-mobile.png';
+import logoMobileText from '../assets/navbar/title-logo-mobile.png';
 
 export default function CoreNavbarHeader() {
   return (

@@ -1,4 +1,4 @@
-import { cn } from '../../../../../utils/cn';
+import { cn } from '../../../utils/cn';
 
 function CoreNavbarMenuMobileTrigger({ onClick, isOpen }: { onClick: () => void; isOpen: boolean }) {
   return (
