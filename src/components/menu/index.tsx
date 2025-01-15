@@ -1,4 +1,4 @@
-import { NavbarItem } from '../type';
+import { NavbarItem } from '../../types/navbar-item';
 import CoreNavbarMenuMobile from './mobile';
 import CoreNavbarMenuDesktop from './desktop';
 
