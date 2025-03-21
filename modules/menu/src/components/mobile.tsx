@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavbarItem } from '../types/navbar-item';
 import { cn } from '../utils/cn';
 import Icon from './icon';
+import { BASE_URL } from '../utils/env';
 
 interface CartTotal {
   total?: string;
@@ -128,14 +129,14 @@ function NavbarMobile({ items }: { items: NavbarItem[] }) {
     if (window.prestashop && window.prestashop.urls) {
       return `${window.prestashop.urls.pages.authentication}`;
     }
-    return 'https://alzgo.fr/connexion?back=my-account';
+    return `${BASE_URL}/connexion?back=my-account`;
   };
 
   const acountConnected = () => {
     if (window.prestashop && window.prestashop.urls) {
       return `${window.prestashop.urls.pages.my_account}`;
     }
-    return 'https://alzgo.fr/mon-compte';
+    return `${BASE_URL}/mon-compte`;
   };
 
   return (
