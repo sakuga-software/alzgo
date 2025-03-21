@@ -4,7 +4,7 @@ import { enhanceMenuWithCustomKeys } from '../utils/compute-menu-items';
 import parseMenu from '../utils/dom-parser';
 import { NAV_SELECTOR } from '../utils/env';
 import DesktopNavItem from './desktop';
-// import NavbarMobile from './mobile';
+import NavbarMobile from './mobile';
 
 function Navbar() {
   const [, setRendered] = React.useState(false);
@@ -32,8 +32,9 @@ function Navbar() {
           {navbarItems?.map((item) => <DesktopNavItem key={item.id} item={item} />)}
         </ul>
       </nav>
-
-      {/* <NavbarMobile items={navbarItems} /> */}
+      <ul className="block lg:hidden">
+        <NavbarMobile items={navbarItems} />
+      </ul>
     </>
   );
 }

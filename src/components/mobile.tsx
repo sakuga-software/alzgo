@@ -3,6 +3,45 @@ import { NavbarItem } from '../types/navbar-item';
 import { cn } from '../utils/cn';
 import Icon from './icon';
 
+interface CartTotal {
+  total?: string;
+}
+interface Cart {
+  totals?: CartTotal;
+}
+interface CartUpdateReason {
+  cart: Cart;
+}
+interface CartUpdateEvent {
+  reason?: CartUpdateReason;
+}
+interface Prestashop {
+  customer?: {
+    is_logged?: boolean;
+  };
+  cart?: {
+    totals?: {
+      total?: string;
+    };
+  };
+  blockcart?: {
+    showModal?: () => void;
+  };
+  urls?: {
+    pages: {
+      authentication: string;
+      my_account: string;
+    };
+  };
+  on: (event: string, callback: (event: CartUpdateEvent) => void) => void;
+  off: (event: string, callback: (event: CartUpdateEvent) => void) => void;
+}
+declare global {
+  interface Window {
+    prestashop?: Prestashop;
+  }
+}
+
 const CategoryItem = ({ child, onClick, isOpen }: { child: NavbarItem; onClick: () => void; isOpen: boolean }) => {
   return (
     <li className="group text-black" data-open={Boolean(isOpen)}>
@@ -33,6 +72,40 @@ const CategoryItem = ({ child, onClick, isOpen }: { child: NavbarItem; onClick: 
 function NavbarMobile({ items }: { items: NavbarItem[] }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [openGrandchildren, setOpenGrandchildren] = React.useState<Record<string, boolean>>({});
+  const [cartAmount, setCartAmount] = React.useState('0,00 €');
+  const [isLogged, setIsLogged] = React.useState(false);
+
+  React.useEffect(() => {
+    if (window.prestashop && window.prestashop.customer) {
+      setIsLogged(Boolean(window.prestashop.customer.is_logged));
+    }
+
+    if (window.prestashop && window.prestashop.cart) {
+      const total = window.prestashop.cart.totals?.total;
+      if (total) {
+        setCartAmount(total);
+      }
+    }
+
+    const handleCartUpdate = (event: CartUpdateEvent): void => {
+      if (event && event.reason && event.reason.cart) {
+        const total = event.reason.cart.totals?.total;
+        if (total) {
+          setCartAmount(total);
+        }
+      }
+    };
+
+    if (window.prestashop) {
+      window.prestashop.on('updateCart', handleCartUpdate);
+    }
+
+    return () => {
+      if (window.prestashop) {
+        window.prestashop.off('updateCart', handleCartUpdate);
+      }
+    };
+  }, []);
 
   const toggleGrandchildren = (childId: string) => {
     setOpenGrandchildren((prev) => ({
@@ -41,9 +114,45 @@ function NavbarMobile({ items }: { items: NavbarItem[] }) {
     }));
   };
 
+  const openCart = () => {
+    if (
+      window.prestashop &&
+      window.prestashop.blockcart &&
+      typeof window.prestashop.blockcart.showModal === 'function'
+    ) {
+      window.prestashop.blockcart.showModal();
+    }
+  };
+
+  const login = () => {
+    if (window.prestashop && window.prestashop.urls) {
+      return `${window.prestashop.urls.pages.authentication}`;
+    }
+    return 'https://alzgo.fr/connexion?back=my-account';
+  };
+
+  const acountConnected = () => {
+    if (window.prestashop && window.prestashop.urls) {
+      return `${window.prestashop.urls.pages.my_account}`;
+    }
+    return 'https://alzgo.fr/mon-compte';
+  };
+
   return (
     <nav className="relative w-full flex-col">
-      <div className="flex h-16 w-full items-center justify-end bg-dark_blue px-6">
+      <div className="flex h-16 w-full items-center justify-between bg-dark_blue px-6">
+        <a href={isLogged ? acountConnected() : login()} className="flex items-center text-white">
+          <Icon name="user" className="size-8 text-second_blue" />
+        </a>
+        <button
+          onClick={openCart}
+          className="flex items-center justify-center rounded-full border border-second_blue px-4 py-1 text-white"
+          type="button"
+        >
+          <Icon name="cart" className="mr-1 size-6 text-second_blue" />
+          <span className="m-2 text-sm text-second_blue">{cartAmount}</span>
+        </button>
+
         <button className="flex scale-125 flex-col gap-1" onClick={() => setIsOpen((prev) => !prev)} type="button">
           <span
             className={cn(`block h-0.5 w-6 bg-second_blue transition-transform`, isOpen && 'translate-y-1.5 rotate-45')}
