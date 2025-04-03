@@ -44,8 +44,8 @@ function parseMenu(html: string): MenuItem[] {
   }
 
   const menuItems: MenuItem[] = [];
-
   const rootItems = doc.querySelectorAll('nav > ul > li.menu-item');
+
   rootItems.forEach((item) => {
     menuItems.push(parseElement(item));
   });

@@ -28,6 +28,7 @@ interface Prestashop {
   blockcart?: {
     showModal?: () => void;
   };
+
   urls?: {
     pages: {
       authentication: string;
