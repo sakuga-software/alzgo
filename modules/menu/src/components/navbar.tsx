@@ -37,7 +37,7 @@ function Navbar() {
         }}
       >
         <ul className="flex w-full items-center justify-center gap-4">
-          {navbarItems?.map((item) => <DesktopNavItem key={item.id} item={item} />)}
+          {navbarItems?.map((item) => <DesktopNavItem key={item.id} item={item} />) || null}
         </ul>
       </nav>
       <ul className="block lg:hidden">
