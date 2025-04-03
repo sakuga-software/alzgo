@@ -13,13 +13,13 @@ function CategoryItem({ item }: CategoryItemProps) {
     <li className={cn('text-base', hasManyChildren && 'row-span-2')}>
       <img src={item.img} className="size-24" />
 
-      <p className="mb-2 mt-4 font-bold text-black">{item.label}</p>
+      <p className="mb-2 mt-4 font-bold text-black">{item.label.toString()}</p>
 
       <ul>
         {item.children?.map((grandChild) => (
           <li className="text-sm" key={grandChild.id}>
             <a className="font-normal text-zinc-700 hover:text-second_blue" href={grandChild.to} key={grandChild.id}>
-              {grandChild.label}
+              {grandChild.label.toString()}
             </a>
           </li>
         ))}
@@ -42,7 +42,7 @@ function DesktopNavItem({ item }: DesktopNavItemProps) {
         key={item.id}
         className="flex size-full items-center gap-1 p-2 text-lg font-semibold text-white transition hover:!text-second_blue"
       >
-        {item.label}
+        {item.label.toString()}
 
         {hasChildren && <Icon name="chevron-down" className="size-4 transition duration-200 group-hover:rotate-180" />}
       </a>
