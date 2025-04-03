@@ -3,8 +3,7 @@ import * as React from 'react';
 import { enhanceMenuWithCustomKeys } from '../utils/compute-menu-items';
 import parseMenu from '../utils/dom-parser';
 import { NAV_SELECTOR } from '../utils/env';
-import DesktopNavItem from './desktop';
-// import NavbarMobile from './mobile';
+import DesktopNavItem from './nav-item';
 
 function Navbar() {
   const [, setRendered] = React.useState(false);
@@ -29,21 +28,16 @@ function Navbar() {
   }
 
   return (
-    <>
-      <nav
-        className="hidden h-16 w-full bg-dark_blue font-host lg:flex lg:rounded-b-2xl"
-        ref={() => {
-          document.querySelector(NAV_SELECTOR)?.classList.add('lg:hidden');
-        }}
-      >
-        <ul className="flex w-full items-center justify-center gap-4">
-          {navbarItems?.map((item) => <DesktopNavItem key={item.id} item={item} />) || null}
-        </ul>
-      </nav>
-      {/* <ul className="block lg:hidden">
-        <NavbarMobile items={navbarItems} />
-      </ul> */}
-    </>
+    <nav
+      className="hidden h-16 w-full bg-dark_blue font-host lg:flex lg:rounded-b-2xl"
+      ref={() => {
+        document.querySelector(NAV_SELECTOR)?.classList.add('lg:hidden');
+      }}
+    >
+      <ul className="flex w-full items-center justify-center gap-4">
+        {navbarItems?.map((item) => <DesktopNavItem key={item.id} item={item} />) || null}
+      </ul>
+    </nav>
   );
 }
 

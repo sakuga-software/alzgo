@@ -28,11 +28,11 @@ function CategoryItem({ item }: CategoryItemProps) {
   );
 }
 
-interface DesktopNavItemProps {
+interface NavItemProps {
   item: NavbarItem;
 }
 
-function DesktopNavItem({ item }: DesktopNavItemProps) {
+function NavItem({ item }: NavItemProps) {
   const hasChildren = item.children && item.children.length > 0;
 
   return (
@@ -80,4 +80,4 @@ function DesktopNavItem({ item }: DesktopNavItemProps) {
   );
 }
 
-export default DesktopNavItem;
+export default NavItem;
