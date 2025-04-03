@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import Navbar from './components/navbar';
+import { ROOT_ID } from './utils/env';
 
 /**
  * This is a workaround to import the default HTML content of the navbar in development mode.
@@ -10,7 +11,7 @@ import Navbar from './components/navbar';
  */
 const navbarDefaultHTML = import.meta.env.DEV ? await import('../mock.html?raw') : { default: '' };
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById(ROOT_ID || 'root')!).render(
   <StrictMode>
     {import.meta.env.DEV && (
       <div className="hidden" dangerouslySetInnerHTML={{ __html: navbarDefaultHTML.default || '' }} />
