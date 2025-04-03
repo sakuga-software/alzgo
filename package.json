@@ -11,7 +11,7 @@
     "lint": "pnpm -r lint"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "eslint": "^8.0.0"
+    "eslint": "^8.57.1",
+    "typescript": "^5.8.2"
   }
 }
