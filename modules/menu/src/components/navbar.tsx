@@ -20,6 +20,14 @@ function Navbar() {
   const menuJSON = parseMenu(menuEl?.outerHTML || '');
   const navbarItems = enhanceMenuWithCustomKeys(menuJSON);
 
+  if (menuEl) {
+    // eslint-disable-next-line no-console
+    console.log(`Loading navbar from ${NAV_SELECTOR}, with ${navbarItems.length} items`);
+  } else {
+    // eslint-disable-next-line no-console
+    console.warn(`Navbar not found at ${NAV_SELECTOR}`);
+  }
+
   return (
     <>
       <nav
