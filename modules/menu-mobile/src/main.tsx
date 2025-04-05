@@ -29,10 +29,10 @@ function Main() {
 
   if (menuEl) {
     // eslint-disable-next-line no-console
-    console.log(`Loading navbar from ${NAV_SELECTOR}, with ${navbarItems.length} items`);
+    console.log(`Loading mobile navbar from ${NAV_SELECTOR}, with ${navbarItems.length} items`);
   } else {
     // eslint-disable-next-line no-console
-    console.warn(`Navbar not found at ${NAV_SELECTOR}`);
+    console.warn(`Mobile navbar not found at ${NAV_SELECTOR}`);
   }
 
   return (
@@ -40,7 +40,7 @@ function Main() {
       <ul
         className="block lg:hidden"
         ref={() => {
-          document.querySelector(NAV_SELECTOR)?.classList.add('max-lg:hidden');
+          document.querySelector(NAV_SELECTOR)?.classList.add('hidden');
         }}
       >
         <Navbar items={navbarItems} />
