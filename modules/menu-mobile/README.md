@@ -1,13 +1,13 @@
-# Alzgo Menu
+# Alzgo Menu (Mobile Version)
 
-This project is a React-based menu component for the Alzgo application. It includes both desktop and mobile navigation components, utilizing Vite for the build process and Tailwind CSS for styling.
+This project is a React-based mobile menu component for the Alzgo application. It is specifically designed for mobile navigation and includes features tailored to smaller screens. The project utilizes Vite for the build process and Tailwind CSS for styling.
 
 ## Project Structure
 
 - `src/`: Contains the source code for the project.
-  - `components/`: React components for the menu.
+  - `components/`: React components for the mobile menu.
   - `utils/`: Utility functions used across the project.
-  - `assets/`: Static assets like images.
+  - `assets/`: Static assets like images and icons.
 - `public/`: Static files that are served directly.
 - `vite.config.ts`: Vite configuration file.
 - `.env`: Environment variables.
@@ -27,7 +27,7 @@ This project is a React-based menu component for the Alzgo application. It inclu
 
 ## DOM Parsing Mechanism
 
-The menu items are parsed from the DOM using a custom utility function. The `parseMenu` function takes the HTML content of the navigation element and converts it into a JSON structure. This JSON structure is then enhanced with additional properties like `id`, `to`, and `img` using the `enhanceMenuWithCustomKeys` function.
+The menu items are parsed from the DOM using a custom utility function. The `parseMenu` function takes the HTML content of the navigation element and converts it into a JSON structure. The JSON structure is then enhanced with additional properties like `id`, `to`, and `img` using the `enhanceMenuWithCustomKeys` function.
 
 ### Example
 
