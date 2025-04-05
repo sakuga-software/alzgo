@@ -84,13 +84,13 @@ function Navbar({ items }: { items: NavbarItem[] }) {
 
   return (
     <>
-      <button className="m-auto flex flex-col gap-1" onClick={() => setIsOpen((prev) => !prev)} type="button">
+      <button className="m-auto flex scale-150 flex-col gap-1" onClick={() => setIsOpen((prev) => !prev)} type="button">
         <span
-          className={cn(`block h-0.5 w-6 bg-second_blue transition-transform`, isOpen && 'translate-y-1.5 rotate-45')}
+          className={cn(`block h-1 w-6 bg-second_blue transition-transform`, isOpen && 'translate-y-2 rotate-45')}
         />
-        <span className={cn(`block h-0.5 w-6 bg-second_blue transition-opacity`, isOpen && 'opacity-0')} />
+        <span className={cn(`block h-1 w-6 bg-second_blue transition-opacity`, isOpen && 'opacity-0')} />
         <span
-          className={cn(`block h-0.5 w-6 bg-second_blue transition-transform`, isOpen && '-translate-y-1.5 -rotate-45')}
+          className={cn(`block h-1 w-6 bg-second_blue transition-transform`, isOpen && '-translate-y-2 -rotate-45')}
         />
       </button>
 
