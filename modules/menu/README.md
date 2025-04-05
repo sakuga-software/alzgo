@@ -78,17 +78,13 @@ This project is deployed on Vercel. The `main` branch is used for development, a
 
 1. Start the development server:
    ```sh
-   pnpm run dev
+   pnpm dev
    ```
 2. Build the project for production:
    ```sh
-   pnpm run build
+   pnpm build
    ```
 3. Preview the production build:
    ```sh
-   pnpm run preview
+   pnpm preview
    ```
-
-## License
-
-This project is licensed under the MIT License.
