@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavbarItem } from '../types/navbar-item';
 import { cn } from '../utils/cn';
 import Icon from './icon';
+import { createPortal } from 'react-dom';
 
 interface CartTotal {
   total?: string;
@@ -93,70 +94,73 @@ function Navbar({ items }: { items: NavbarItem[] }) {
         />
       </button>
 
-      <div
-        className="group/menu absolute left-0 top-full w-full transition-all data-[open=false]:h-0 data-[open=false]:-translate-x-4 data-[open=false]:overflow-hidden data-[open=false]:opacity-0"
-        data-open={Boolean(isOpen)}
-      >
-        <ul className="relative h-full">
-          {items?.map((item) => (
-            <React.Fragment key={item.id}>
-              <li className="group/item h-20 text-black" data-open={Boolean(openGrandchildren[item.id])}>
-                <a
-                  onClick={item.children && item.children.length > 0 ? () => toggleGrandchildren(item.id) : undefined}
-                  href={item.children && item.children.length > 0 ? undefined : item.to}
-                  className="flex h-full w-full items-center gap-8 border-b border-black px-4 py-2"
-                >
-                  <p className="font-semibold">{item.label}</p>
-                  {item.children && item.children.length > 0 && (
-                    <Icon
-                      name="chevron-right"
-                      className="ml-auto size-10 text-second_blue transition duration-200 group-data-[open=true]/item:rotate-180"
-                    />
-                  )}
-                </a>
-              </li>
-
-              {item.children && item.children.length > 0 && (
-                <div
-                  className="group/item absolute left-0 top-0 z-10 w-full transform bg-white text-dark_blue transition-all duration-200 data-[open=false]:h-0 data-[open=false]:-translate-x-16 data-[open=false]:overflow-hidden data-[open=false]:opacity-0"
-                  data-open={Boolean(openGrandchildren[item.id])}
-                >
+      {createPortal(
+        <div
+          className="group/menu absolute left-0 top-[18.5rem] max-h-dvh w-full bg-white transition-all data-[open=false]:max-h-0 data-[open=false]:-translate-x-4 data-[open=false]:overflow-hidden data-[open=false]:opacity-0"
+          data-open={Boolean(isOpen)}
+        >
+          <ul className="relative h-full">
+            {items?.map((item) => (
+              <React.Fragment key={item.id}>
+                <li className="group/item h-20 text-black" data-open={Boolean(openGrandchildren[item.id])}>
                   <a
-                    onClick={() => {
-                      if (item.children && item.children.length > 0) {
-                        toggleGrandchildren(item.id);
-                      }
-                    }}
-                    type="button"
-                    className="flex h-20 w-full items-center gap-8 border-b border-black px-4 py-2"
+                    onClick={item.children && item.children.length > 0 ? () => toggleGrandchildren(item.id) : undefined}
+                    href={item.children && item.children.length > 0 ? undefined : item.to}
+                    className="flex h-full w-full items-center gap-8 border-b border-black px-4 py-2"
                   >
-                    <Icon
-                      name="chevron-right"
-                      className="size-10 text-second_blue transition duration-200 group-data-[open=true]/item:rotate-180"
-                    />
                     <p className="font-semibold">{item.label}</p>
-                  </a>
-
-                  <ul className="h-full">
-                    {item.children?.map(
-                      (child) =>
-                        child.children &&
-                        child.children.length > 0 && (
-                          <CategoryItem
-                            key={`${item.id}-${child.id}`}
-                            child={child}
-                            onClick={() => toggleGrandchildren(child.id)}
-                            isOpen={openGrandchildren[child.id]}
-                          />
-                        )
+                    {item.children && item.children.length > 0 && (
+                      <Icon
+                        name="chevron-right"
+                        className="ml-auto size-10 text-second_blue transition duration-200 group-data-[open=true]/item:rotate-180"
+                      />
                     )}
-                  </ul>
-                </div>
-              )}
-            </React.Fragment>
-          ))}
-        </ul>
-      </div>
+                  </a>
+                </li>
+
+                {item.children && item.children.length > 0 && (
+                  <div
+                    className="group/item _data-[open=false]:h-0 _data-[open=false]:overflow-hidden absolute left-0 top-0 z-10 w-full transform bg-white text-dark_blue transition-all duration-200 data-[open=false]:w-0 data-[open=false]:-translate-x-16 data-[open=false]:opacity-0"
+                    data-open={Boolean(openGrandchildren[item.id])}
+                  >
+                    <a
+                      onClick={() => {
+                        if (item.children && item.children.length > 0) {
+                          toggleGrandchildren(item.id);
+                        }
+                      }}
+                      type="button"
+                      className="flex h-20 w-full items-center gap-8 border-b border-black px-4 py-2"
+                    >
+                      <Icon
+                        name="chevron-right"
+                        className="size-10 text-second_blue transition duration-200 group-data-[open=true]/item:rotate-180"
+                      />
+                      <p className="font-semibold">{item.label}</p>
+                    </a>
+
+                    <ul className="h-full">
+                      {item.children?.map(
+                        (child) =>
+                          child.children &&
+                          child.children.length > 0 && (
+                            <CategoryItem
+                              key={`${item.id}-${child.id}`}
+                              child={child}
+                              onClick={() => toggleGrandchildren(child.id)}
+                              isOpen={openGrandchildren[child.id]}
+                            />
+                          )
+                      )}
+                    </ul>
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
+          </ul>
+        </div>,
+        document.body
+      )}
     </>
   );
 }
