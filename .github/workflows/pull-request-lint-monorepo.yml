@@ -1,0 +1,44 @@
+name: Pull Request Lint Monorepo
+on:
+  workflow_dispatch:
+  # Since we're not in a monorepo anymore, this workflow is disabled.
+  # pull_request:
+
+jobs:
+  get_changed_modules:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get changed modules
+        id: set-matrix
+        run: |
+          git fetch origin ${{ github.event.pull_request.base.ref }}
+          packages=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }} HEAD | grep '^modules/' | cut -d/ -f2 | sort -u | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "matrix=$packages" >> $GITHUB_OUTPUT
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: get_changed_modules
+    strategy:
+      matrix:
+        module: ${{ fromJson(needs.get_changed_modules.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 10.7.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Run lint on changed module
+        run: pnpm -F "./modules/${{ matrix.module }}" lint

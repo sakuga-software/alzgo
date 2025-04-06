@@ -1,4 +1,2 @@
-packages:
-  - modules/*
 onlyBuiltDependencies:
   - esbuild

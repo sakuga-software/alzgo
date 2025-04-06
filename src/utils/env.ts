@@ -1,0 +1,9 @@
+const BASE_URL = import.meta.env.VITE_BASE_URL as string;
+
+const MENU_SELECTOR = import.meta.env.VITE_MENU_SELECTOR;
+const MENU_ROOT_ID = import.meta.env.VITE_MENU_ROOT_ID;
+
+const MENU_MOBILE_SELECTOR = import.meta.env.VITE_MENU_MOBILE_SELECTOR;
+const MENU_MOBILE_ROOT_ID = import.meta.env.VITE_MENU_MOBILE_ROOT_ID;
+
+export { BASE_URL, MENU_SELECTOR, MENU_ROOT_ID, MENU_MOBILE_SELECTOR, MENU_MOBILE_ROOT_ID };
