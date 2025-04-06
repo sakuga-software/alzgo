@@ -30,7 +30,7 @@ function Main() {
 
   return (
     <nav
-      className="hidden h-16 w-full bg-blue-950 font-host lg:!flex lg:rounded-b-2xl"
+      className="font-host hidden h-16 w-full bg-blue-950 lg:!flex lg:rounded-b-2xl"
       ref={() => {
         document.querySelector(MENU_SELECTOR)?.classList.add('lg:hidden');
       }}
@@ -41,7 +41,6 @@ function Main() {
     </nav>
   );
 }
-
 
 /**
  * This is a workaround to import the default HTML content of the navbar in development mode.

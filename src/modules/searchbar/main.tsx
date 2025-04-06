@@ -4,7 +4,7 @@ import '../../index.css';
 
 const App = () => {
   return (
-    <div className="flex w-full p-8 bg-blue-950">
+    <div className="flex w-full bg-blue-950 p-8">
       <h1 className="text-3xl font-bold">Searchbar</h1>
     </div>
   );

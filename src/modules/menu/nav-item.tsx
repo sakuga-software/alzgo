@@ -13,7 +13,7 @@ function CategoryItem({ item }: CategoryItemProps) {
     <li className={cn('text-base', hasManyChildren && 'row-span-2')}>
       <img src={item.img} className="size-24" />
 
-      <p className="mb-2 mt-4 font-bold text-black">{item.label}</p>
+      <p className="mt-4 mb-2 font-bold text-black">{item.label}</p>
 
       <ul>
         {item.children?.map((grandChild) => (
@@ -67,7 +67,7 @@ function NavItem({ item }: NavItemProps) {
           <ul
             className={cn(
               'size-full overflow-auto rounded-sm bg-white !p-8 !pb-32 shadow',
-              'grid grid-cols-3 xl:grid-cols-4 grid-rows-[repeat(minmax(1fr,150px),3)] gap-8 2xl:grid-cols-5' // grid layout
+              'grid grid-cols-3 grid-rows-[repeat(minmax(1fr,150px),3)] gap-8 xl:grid-cols-4 2xl:grid-cols-5' // grid layout
             )}
           >
             {item.children?.map(

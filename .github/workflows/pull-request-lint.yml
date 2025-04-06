@@ -20,5 +20,5 @@ jobs:
       - name: Install dependencies
         run: pnpm i
 
-      - name: Run lint on changed module
+      - name: Run lint
         run: pnpm lint

@@ -38,7 +38,7 @@ function Main() {
   return (
     <>
       <ul
-        className="block lg:hidden tw-reset"
+        className="tw-reset block lg:hidden"
         ref={() => {
           document.querySelector(MENU_MOBILE_SELECTOR)?.classList.add('hidden');
         }}
