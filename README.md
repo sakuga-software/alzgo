@@ -1,16 +1,22 @@
 # Alzgo Menu
 
-This project is a React-based menu component for the Alzgo application. It includes both desktop and mobile navigation components, utilizing Vite for the build process and Tailwind CSS for styling.
+This project is a React-based menu component for the Alzgo application. It includes multiple modules that are deployed and used on the alzgo.fr website, utilizing Vite for the build process and Tailwind CSS for styling.
 
 ## Project Structure
 
 - `src/`: Contains the source code for the project.
-  - `components/`: React components for the menu.
+  - `modules/`: React modules for different web islands.
   - `utils/`: Utility functions used across the project.
-  - `assets/`: Static assets like images.
+  - `index.css`: Global CSS file.
+  - `types.ts`: TypeScript type definitions.
 - `public/`: Static files that are served directly.
+  - `assets/`: SVG assets for various menu icons.
+  - `icons/`: PNG icons for navigation.
+- `pages/`: HTML mockups that are used in development.
 - `vite.config.ts`: Vite configuration file.
-- `.env`: Environment variables.
+- `tsconfig.json`: TypeScript configuration file.
+- `eslint.config.js`: ESLint configuration file.
+- `vercel.json`: Vercel deployment configuration.
 
 ## Scripts
 
@@ -22,8 +28,22 @@ This project is a React-based menu component for the Alzgo application. It inclu
 
 ## Environment Variables
 
+The project uses Vite for environment variable management. Environment variables are defined in `.env` files and can be accessed using imports from 'utils/env'.
+You can use the model from '.env.example' to create your own `.env` file.
+
+### Common Configuration
+
 - `VITE_BASE_URL`: Base URL for the application.
-- `VITE_NAV_SELECTOR`: CSS selector for the navigation element.
+
+### Menu Configuration
+
+- `VITE_MENU_SELECTOR`: CSS selector for the main menu element.
+- `VITE_MENU_ROOT_ID`: ID for the main menu root element.
+
+### Mobile Menu Configuration
+
+- `VITE_MENU_MOBILE_SELECTOR`: CSS selector for the mobile menu element.
+- `VITE_MENU_MOBILE_ROOT_ID`: ID for the mobile menu root element.
 
 ## DOM Parsing Mechanism
 
@@ -63,15 +83,19 @@ This project is deployed on Vercel. The `main` branch is used for development, a
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/alzgo-menu.git
+   git clone https://github.com/sakuga-software/alzgo.git
    ```
 2. Navigate to the project directory:
    ```sh
-   cd alzgo-menu
+   cd alzgo
    ```
 3. Install dependencies:
    ```sh
    pnpm install
+   ```
+4. Create a `.env` file based on the `.env.example` file:
+   ```sh
+   cp .env.example .env
    ```
 
 ## Usage
