@@ -21,9 +21,15 @@ const CategoryItem = ({ child, onClick, isOpen }: { child: NavbarItem; onClick: 
         />
       </button>
 
-      <ul className="transition-all group-data-[open=false]:h-0 group-data-[open=false]:overflow-hidden group-data-[open=true]:!m-8">
+      <ul
+        className={cn(
+          'flex flex-col gap-3 transition-all',
+          'group-data-[open=false]:h-0 group-data-[open=false]:overflow-hidden',
+          'group-data-[open=true]:border-b group-data-[open=true]:border-black group-data-[open=true]:!p-8'
+        )}
+      >
         {child.children?.map((grandchild) => (
-          <li key={grandchild.id} className="mb-3 text-base">
+          <li key={grandchild.id} className="text-base">
             <a className="!text-black" href={grandchild.to}>
               {grandchild.label}
             </a>
