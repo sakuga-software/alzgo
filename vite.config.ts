@@ -21,6 +21,10 @@ export default defineConfig({
             return '[name].[ext]';
           }
 
+          if (chunkInfo.names?.[0]?.endsWith('.css')) {
+            return 'index.css';
+          }
+
           return '[name][extname]';
         },
         manualChunks: undefined,
